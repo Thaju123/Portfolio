@@ -876,8 +876,8 @@ h2 {
 /* ===== VIEW BUTTON STYLING ===== */
 .view-btn {
   margin-left: auto;
-  background: rgba(124,255,233,0.15);
-  color: #77cdff;
+  background-color: #77cdff;
+  color: #101e3c;
   border: 1px solid rgba(124,255,233,0.4);
   padding: 6px 14px;
   font-size: 0.9rem;
