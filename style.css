@@ -548,6 +548,7 @@ h2 {
 
 
 /* ===== CONTACT SECTION ===== */
+/* ===== CONTACT SECTION (Card Style) ===== */
 #contact {
   max-width: 90%;
   margin: 0 auto 50px auto;
@@ -556,6 +557,7 @@ h2 {
   background: none;
   box-shadow: 0 2px 10px rgba(0,0,0,0.2);
   border: 1px solid rgba(124,255,233,0.2);
+  text-align: center;
 }
 
 #contact h2 {
@@ -567,40 +569,61 @@ h2 {
   margin-bottom: 30px;
 }
 
-#contact form {
+/* Contact Options Grid */
+.contact-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-top: 10px;
+}
+
+/* Each Contact Card */
+.contact-card {
   display: flex;
   flex-direction: column;
-  gap: 18px;
-}
-
-#contact input,
-#contact textarea {
-  background: rgba(124, 255, 233, 0.06);
-  border: 1px solid rgba(124, 255, 233, 0.22);
-  padding: 12px 14px;
+  align-items: center;
+  background: rgba(124,255,233,0.06);
+  border: 1px solid rgba(124,255,233,0.22);
   color: #e0eaff;
-  font-size: 1rem;
-  font-family: 'Lato', Arial, sans-serif;
+  padding: 16px;
   border-radius: 8px;
-  outline: none;
-  transition: border 0.18s ease, background 0.18s ease;
+  text-decoration: none;   /* remove underline from links */
+  transition: background 0.18s, transform 0.18s;
 }
 
-#contact input::placeholder,
-#contact textarea::placeholder {
-  color: rgba(224, 234, 255, 0.7);
+.contact-card:hover {
+  background: rgba(124,255,233,0.12);
+  transform: translateY(-3px);
 }
 
-#contact input:focus,
-#contact textarea:focus {
-  border-color: #77cdff;
-  background: rgba(124, 255, 233, 0.12);
+/* Icons */
+.contact-card i {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  color: #77cdff;
 }
 
-#contact textarea {
-  resize: none;
-  min-height: 120px;
+/* Title (like Email, LinkedIn) */
+.contact-card span {
+  font-weight: bold;
+  font-size: 1.05rem;
+  margin-bottom: 4px;
 }
+
+/* Detail Text (like email address) */
+.contact-card p {
+  font-size: 0.95rem;
+  color: #b5d8ff;
+  word-break: break-word;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 700px) {
+  .contact-options {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 /* ===== BUTTON STYLE ===== */
 #contact .btn {
@@ -707,6 +730,7 @@ h2 {
   transform: translateY(0);
 }
 /* ===== EXPERIENCE SECTION ===== */
+/* ===== EXPERIENCE SECTION ===== */
 #experience {
   border: 2px solid rgba(124,255,233,0.2);
   border-radius: 14px;
@@ -726,16 +750,16 @@ h2 {
   letter-spacing: 1px;
 }
 
-/* Experience items same as skill boxes */
 #experience .skills-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 items in a row for desktop */
+  grid-template-columns: repeat(2, 1fr);
   gap: 25px;
 }
 
 #experience .skill-box {
   display: flex;
   align-items: center;
+  justify-content: space-between; /* space out text and button */
   background: rgba(124,255,233,0.06);
   border: 1px solid rgba(124,255,233,0.22);
   color: #e0eaff;
@@ -744,6 +768,11 @@ h2 {
   font-family: 'Lato', Arial, sans-serif;
   border-radius: 8px;
   transition: background 0.18s, transform 0.18s;
+  gap: 14px;
+}
+
+#experience .skill-box div {
+  flex: 1; /* let text take available width */
 }
 
 #experience .skill-box:hover {
@@ -758,20 +787,12 @@ h2 {
   text-align: center;
 }
 
-/* Icon colors for variety */
-#experience .skill-box:nth-child(1) .skill-icon { color: #f0a500; } /* Intern */
-#experience .skill-box:nth-child(2) .skill-icon { color: #4cafef; } /* Club */
+#experience .skill-box:nth-child(1) .skill-icon { color: #f0a500; }
+#experience .skill-box:nth-child(2) .skill-icon { color: #4cafef; }
 
-/* Mobile responsiveness */
 @media (max-width: 900px) {
-  #experience .skills-grid {
-    grid-template-columns: 1fr; /* Single column on smaller screens */
-  }
+  #experience .skills-grid { grid-template-columns: 1fr; }
 }
-
-#experience .skill-box:nth-child(1) .skill-icon { color: #f0a500; } /* Intern */
-#experience .skill-box:nth-child(2) .skill-icon { color: #4cafef; } /* Club */
-
 
 /* ===== ACHIEVEMENTS SECTION ===== */
 #achievements {
@@ -793,16 +814,16 @@ h2 {
   letter-spacing: 1px;
 }
 
-/* Layout grid for achievements */
 #achievements .skills-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 per row on desktop */
+  grid-template-columns: repeat(2, 1fr);
   gap: 25px;
 }
 
 #achievements .skill-box {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   background: rgba(124,255,233,0.06);
   border: 1px solid rgba(124,255,233,0.22);
   color: #e0eaff;
@@ -811,6 +832,11 @@ h2 {
   font-family: 'Lato', Arial, sans-serif;
   border-radius: 8px;
   transition: background 0.18s, transform 0.18s;
+  gap: 14px;
+}
+
+#achievements .skill-box div {
+  flex: 1;
 }
 
 #achievements .skill-box:hover {
@@ -825,36 +851,49 @@ h2 {
   text-align: center;
 }
 
-/* Custom icon colors */
-#achievements .skill-box:nth-child(1) .skill-icon { color: #ffd700; } /* Trophy */
-#achievements .skill-box:nth-child(2) .skill-icon { color: #32c671; } /* Graduation cap */
-#achievements .skill-box:nth-child(3) .skill-icon { color: #f0a500; } /* Certificate */
-#achievements .skill-box:nth-child(4) .skill-icon { color: #77cdff; } /* Lightbulb */
+#achievements .skill-box:nth-child(1) .skill-icon { color: #ffd700; }
+#achievements .skill-box:nth-child(2) .skill-icon { color: #32c671; }
+#achievements .skill-box:nth-child(3) .skill-icon { color: #f0a500; }
+#achievements .skill-box:nth-child(4) .skill-icon { color: #77cdff; }
 
-/* Responsive design */
 @media (max-width: 900px) {
-  #achievements .skills-grid {
-    grid-template-columns: 1fr; /* Stack vertically on small screens */
-  }
+  #achievements .skills-grid { grid-template-columns: 1fr; }
   #achievements h2 {
     font-size: 1.5rem;
     margin-bottom: 30px;
   }
-  #achievements .skill-box {
-    font-size: 1rem;
-    padding: 10px 14px;
-  }
 }
 
 @media (max-width: 600px) {
-  #achievements {
-    padding: 15px;
-  }
-  #achievements h2 {
-    font-size: 1.3rem;
-  }
+  #achievements { padding: 15px; }
+  #achievements h2 { font-size: 1.3rem; }
   #achievements .skill-icon {
     font-size: 1.2rem;
     margin-right: 8px;
   }
 }
+
+/* ===== VIEW BUTTON STYLING ===== */
+.view-btn {
+  margin-left: auto;
+  background: rgba(124,255,233,0.15);
+  color: #77cdff;
+  border: 1px solid rgba(124,255,233,0.4);
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  font-family: 'Lato', Arial, sans-serif;
+  text-decoration: none;       /* remove underline for links */
+  display: inline-block;       /* make it behave like a button */
+}
+
+.view-btn:hover,
+.view-btn:focus {
+  background: rgba(124,255,233,0.3);
+  color: #ffffff;
+  outline: none;
+}
+
+
